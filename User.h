@@ -13,7 +13,7 @@ class User{
         string name;
         string email;
         string password;
-        int sdt;
+        string sdt;
         double cash;
         vector <Account> account;
         vector <Transaction> transactionCash;
@@ -24,14 +24,13 @@ class User{
             cout << "Nhap ten user: ";  getline(cin, this->name);
             cout << "Nhap email: "; getline(cin, this->email);
             cout << "Nhap password: "; getline(cin, password);
-            cout << "Nhap SDT: "; cin >> this->sdt;
+            cout << "Nhap SDT: "; getline(cin, this->sdt);
             cout << "Nhap so luong tien mat: "; cin >> this->cash;
         }
         void addAcount()
         {
             Account newAcount;
             while(true){
-                cin.ignore();
                 newAcount.input();
                 bool flag = true;
                 for(int i = 0; i < this->account.size(); i++)
@@ -50,9 +49,14 @@ class User{
         }
         void display()
         {
-            cout << "user ID: " << this->userID << endl;
+            // Kiểm tra xem thông tin người dùng đã được nhập hay chưa
+            if (this->name.empty() || this->email.empty() || this->password.empty() || this->userID < 0) {
+                cout << "Chua co thong tin nguoi dung. Vui long nhap thong tin truoc!" << endl;
+                return;
+            }
+            cout << "User ID: " << this->userID << endl;
             cout << "Ten user: " << this->name << endl;
-            cout << "email user: " << this->email << endl;
+            cout << "Email user: " << this->email << endl;
             cout << "So dien thoai user: " << this->sdt << endl;
         }
         void showAccount()

@@ -13,6 +13,7 @@ class Transaction{
     public:
         virtual void input()
         {
+            cin.ignore();
             cout << "Nhap ID giao dich: ";  getline(cin, this->transID);
             cout << "Nhap so tien giao dich: "; cin >> this->amount;
             cout << "Nhap thoi gian giao dich: " << endl;
@@ -23,6 +24,7 @@ class Transaction{
         }
         virtual void inputLoanBorrow()
         {
+            cin.ignore();
             cout << "Nhap ID giao dich: ";  getline(cin, this->transID);
             cout << "Nhap so tien giao dich: "; cin >> this->amount;
             cout << "Nhap thoi gian giao dich: " << endl;
