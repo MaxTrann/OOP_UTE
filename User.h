@@ -59,6 +59,32 @@ class User{
             cout << "Email user: " << this->email << endl;
             cout << "So dien thoai user: " << this->sdt << endl;
         }
+        void displayBalanceInfo() {
+            double balanceCash = this->getBalanceCash(); // Số dư tiền mặt
+            double balanceTotal = this->getBalanceCashVirtual(); // Tổng số dư (tiền mặt + tài khoản)
+
+            cout << "================== Thong Tin So Du ==================" << endl;
+            cout << "So du tien mat: " << fixed << setprecision(2) << balanceCash << " VND" << endl;
+            cout << "Tong so du (tien mat + tai khoan): " << fixed << setprecision(2) << balanceTotal << " VND" << endl;
+            cout << "=====================================================" << endl;
+        }
+        void displayAllAccountBalances() {
+            if (this->account.empty()) {
+                cout << "Khong co tai khoan nao!" << endl;
+                return;
+            }
+
+            cout << "================== So Du Tat Ca Tai Khoan ==================" << endl;
+            for (int i = 0; i < this->account.size(); i++) {
+                cout << "Tai khoan " << i + 1 << ":" << endl;
+                cout << "  Ten tai khoan: " << this->account[i].getNameAcount() << endl;
+                cout << "  So du hien tai: " << fixed << setprecision(2) 
+                    << this->account[i].getBalance() << " VND" << endl;
+                cout << "----------------------------------------------------------" << endl;
+            }
+            cout << "==========================================================" << endl;
+        }
+
         void showAccount()
         {
             for(Account acc : this->account)

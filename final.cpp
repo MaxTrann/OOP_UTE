@@ -13,12 +13,15 @@ void showMenu() {
     cout << "5. Hien thi lich su giao dich" << endl;
     cout << "6. Hien thi bao cao tai khoan" << endl;
     cout << "7. Hien thi bao cao khoan vay/muon" << endl;
-    cout << "8. Xuat thong tin nguoi dung" << endl;  // Hiển thị thông tin người dùng
-    cout << "9. Xuat danh sach tai khoan" << endl;   // Hiển thị danh sách tài khoản
-    cout << "10. Thoat" << endl;
+    cout << "8. Xuat thong tin nguoi dung" << endl;
+    cout << "9. Xuat danh sach tai khoan" << endl;
+    cout << "10. Xem thong tin so du" << endl;
+    cout << "11. Xem so du cua tung tai khoan" << endl; // Tùy chọn mới
+    cout << "12. Thoat" << endl;
     cout << "=============================================" << endl;
     cout << "Chon mot tuy chon: ";
 }
+
 
 
 
@@ -93,6 +96,16 @@ int main() {
                 break;
             }
             case 10: {
+                cout << "=== Xem thong tin so du ===" << endl;
+                user.displayBalanceInfo();
+                break;
+            }
+            case 11: {
+                cout << "=== Xem so du cua tung tai khoan ===" << endl;
+                user.displayAllAccountBalances();
+                break;
+            }
+            case 12: {
                 cout << "Thoat chuong trinh. Tam biet!" << endl;
                 return 0;
             }
