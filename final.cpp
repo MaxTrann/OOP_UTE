@@ -24,7 +24,8 @@ void showMenu() {
     cout << "16. Xoa khoan vay" << endl;
     cout << "17. Xoa khoan muon" << endl;
     cout << "18. Xoa tai khoan" << endl;
-    cout << "19. Thoat" << endl;
+    cout << "19. Cap nhat tai khoan" << endl;
+    cout << "20. Thoat" << endl;
     cout << "=============================================" << endl;
     cout << "\nChon mot tuy chon: ";
 }
@@ -126,6 +127,10 @@ int main() {
                 user.deleteAcount();
                 break;
             case 19:
+                cout << "=== Cap nhat tai khoan ===" << endl;
+                user.updateAccount();
+                break;
+            case 20:
                 cout << "Thoat chuong trinh. Tam biet!" << endl;
                 return 0;
             default:

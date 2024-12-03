@@ -36,6 +36,12 @@ class User {
                 bool flag = true;
                 for(int i = 0; i < this->account.size(); i++)
                 {
+                    if(newAcount.getAccountID() == this->account[i].getAccountID())
+                    {
+                        cout << "ID tai khoan da ton tai, vui long nhap lai!" << endl;
+                        flag = false;
+                        break;
+                    }
                     if(this->account[i].getNameAcount() == newAcount.getNameAcount())
                     {
                         cout << "Ten tai khoan da ton tai, vui long nhap lai!" << endl;
@@ -47,8 +53,7 @@ class User {
             }
             account.push_back(newAcount);
             cout << "Tai khoan moi da duoc them vao." << endl;
-        }
-
+        }   
         void display()
         {
             // Kiểm tra xem thông tin người dùng đã được nhập hay chưa
@@ -143,6 +148,7 @@ class User {
                     }
                     cout << "1. Ten tai khoan" << endl;
                     cout << "2. Mat khau tai khoan" << endl;
+                    cout << "3. So du tai khoan" << endl;
                     cout << "Chon thong tin muon sua doi: ";
                     int choice; cin >> choice;
                     if(choice == 1)
@@ -173,6 +179,13 @@ class User {
                         cin.ignore();
                         newPassWord = getMaskedPassword();
                         this->account[i].updatePassword(newPassWord);
+                    }
+                    else if (choice == 3)
+                    {
+                        cout << "Nhap so du moi: ";
+                        double newBalance;
+                        cin >> newBalance;
+                        this->account[i].updateBalance(newBalance);
                     }
                     else 
                     {
@@ -602,8 +615,10 @@ class User {
         }
         void reportAccount()
         {
-            if(this->account.empty())
+            if(this->account.empty()){
                 cout << "Khong ton tai tai khoan" << endl;
+                return
+            }
             cout << "Thong tin cac tai khoan da duoc them: " << endl;
             for(int i = 0; i < this->account.size(); i++)
                 this->account[i].display();

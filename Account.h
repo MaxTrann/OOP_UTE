@@ -16,6 +16,10 @@ class Account{
         vector <Transaction> historyTrans;
         vector <Loan_Borrow> listLoan_Borrow;
     public:
+        string getAccountID()
+        {
+            return this->acountID;
+        }
         bool login(string name)
         {
             if(name == this->accountName)
@@ -26,6 +30,12 @@ class Account{
         void updateName(string newName)
         {
             this->accountName = newName;
+        }
+        void updateID(string newID){
+            this->acountID = newID;
+        }
+        void updateBalance(double newBalance){
+            this->balance = newBalance;
         }
         void updatePassword(string newPassWord)
         {
