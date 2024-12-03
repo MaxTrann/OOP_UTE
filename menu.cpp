@@ -11,14 +11,6 @@ void showMenu()
     cout <<"\n\t\t| 0. Exit Program                       2. Transaction Option Window |";
     cout <<"\n\t\t| 1. Account Option Window              3. Report Option Window      |";
     cout <<"\n\t\t|____________________________________________________________________|" << endl;
-   
-    // cout << "5. 
-    // cout << "6. " << endl;
-    // cout << "7. " << endl;
-
-    // cout << "9. " << endl;
-    // cout << "10. " << endl;
-    // cout << "11. " << endl;
     cout << "\nChon thao tac: ";
 }
 
