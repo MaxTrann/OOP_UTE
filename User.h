@@ -187,6 +187,14 @@ class User {
             cout << "2. Giao dich bang tai khoan khac" << endl;
             cout << "Chon loai giao dich: ";
             int choice; cin >> choice;
+
+            do{
+                if (choice != 1 && choice != 2){
+                    cout << "Lua chon khong hop le! Vui long nhap lai!\n";
+                    cout << "Chon loai giao dich: "; cin >> choice;
+                }
+            }while(choice != 1 && choice != 2);
+
             if(choice == 1)
             {
                 Transaction x;
@@ -229,6 +237,7 @@ class User {
                 }
                 if(flag == true) cout << "Ten tai khoan khong ton tai !" << endl;
             }
+
         }
         void deleteTransaction()
         {
@@ -374,6 +383,7 @@ class User {
         void addLoan()
         {
             cout << "Nhap ten tai khoan: ";
+            cin.ignore();
             string name; getline(cin, name);
             bool check = true;
             for(int i = 0; i < this->account.size(); i++)
@@ -480,7 +490,8 @@ class User {
         void addBorrow()
         {
             cout << "Nhap ten tai khoan: ";
-            string name; 
+            string name;
+            cin.ignore();
             getline(cin, name);
             bool check = true;
             for(int i = 0; i < this->account.size(); i++)

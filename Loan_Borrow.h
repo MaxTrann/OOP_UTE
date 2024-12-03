@@ -64,7 +64,7 @@ class Loan_Borrow : public Transaction{
             cout << "Thoi gian den han: "; this->endDate.display();
             cout << "Trang thai vay/muon: "; this->notification();
             cout << "Loai giao dich: "; this->type == 0 ? cout << "Vay" << endl : cout << "Muon" << endl;
-            cout << "So tien "; this->type == 0 ? cout << "can tra la: " : cout << " nhan duoc la: ";
+            cout << "So tien "; this->type == 0 ? cout << "nhan duoc la: " : cout << "can phai tra: ";
             cout << fixed << setprecision(2) << this->getData()<< " VND"<< endl;
         }
 };
