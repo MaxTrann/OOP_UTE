@@ -17,13 +17,16 @@ public:
     }
 	void input(){
 		do{
-			cout << "Nhap gio - phut: "; cin >> this->hour >> this->minute;
+			cout << "Nhap gio: "; cin >> this->hour;
+			cout << "Nhap phut: "; cin >> this->minute;
 			if (this->hour < 0 || this->hour > 23 || this->minute < 0 || this->minute > 59)
 				cout << "Du lieu nhap khong hop le! Vui long nhap lai!\n";
 		} while(this->hour < 0 || this->hour > 23 || this->minute < 0 || this->minute > 59);
 
 		do{
-			cout << "Nhap ngay - thang - nam: "; cin >> this->day >> this->month >> this->year;
+			cout << "Nhap ngay: "; cin >> this->day;
+			cout << "Nhap thang: "; cin >> this->month;
+			cout << "Nhap nam: "; cin >> this->year;
 			if (this->month < 1 || this->month > 12 || this->day < 1 || this->day > this->daysMonth())
 				cout << "Du lieu nhap khong hop le! Vui long nhap lai!\n";
 		}while(this->month < 1 || this->month > 12 || this->day < 1 || this->day > this->daysMonth());
