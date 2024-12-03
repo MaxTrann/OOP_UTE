@@ -18,7 +18,11 @@ int main()
 {
     User user;
     int choice;
-
+    cout << "=======================LOGIN======================" << endl;
+    cout << "|      VUI LONG NHAP NGUOI DUNG DEN BAT DAU      |" << endl;
+    cout << "|________________________________________________|" << endl;
+    user.input();
+    system("cls");
     while (true) 
     {
         showMenu();
