@@ -47,8 +47,67 @@ class User {
             }
             account.push_back(newAcount);
             cout << "Tai khoan moi da duoc them vao." << endl;
-        }
+        }   
+        void updateAccount(){
+            cout << "Nhap ten tai khoan muon cap nhat: ";
+            string accName;
+            getline(cin, accName);
 
+            for (auto& acc : account){
+                if (acc.getNameAcount() == accName){
+                    cout << "Tai khoan tim thay!\n";
+                    acc.display();
+
+                    cout << "Chon thong tin can cap nhat:\n";
+                    cout << "1.ID tai khoan\n";
+                    cout << "2.Ten tai khoan\n";
+                    cout << "3.So du tai khoan\n";
+                    cout << "4.Mat khau tai khoan\n";
+                    cout << "Lua chon cua ban: ";
+
+                    int choice; cin >> choice;
+                    cin.ignore();
+                    switch(choice){
+                        case 1:{
+                            cout << "Nhap ID tai khoan moi: ";
+                            string newID;
+                            acc.updateID(newID);
+                            cout << "Cap nhat ID tai khoan thanh cong!\n";
+                            break;
+                        }
+                        case 2:
+                        {
+                            cout << "Nhap ten tai khoan moi: ";
+                            string newName;
+                            acc.updateName(newName);
+                            cout << "Cap nhat ten tai khoan thanh cong!\n";
+                            break;
+                        }
+                        case 3:
+                        {
+                            cout << "Nhap so du moi: ";
+                            double newAmount;
+                            cin >> newAmount;
+                            acc.updateBalance(newAmount);
+                            cout << "Cap nhat so du tai khoan thanh cong!\n";
+                            break;
+                        }
+                        case 4:
+                        {
+                            cout << "Nhap mat khau moi: ";
+                            string newPassword = getMaskedPassword();
+                            acc.updatePassword(newPassword);
+                            cout << "Cap nhat mat khau thanh cong!\n";
+                            break;
+                        }
+                        default:
+                            cout << "Lua chon khong hop le!\n";
+                    }
+                    return;
+                }
+            }
+            cout << "Khong tim thay tai khoan voi ten da nhap.\n";
+        }
         void display()
         {
             // Kiểm tra xem thông tin người dùng đã được nhập hay chưa

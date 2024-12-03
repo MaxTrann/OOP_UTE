@@ -27,6 +27,12 @@ class Account{
         {
             this->accountName = newName;
         }
+        void updateID(string newID){
+            this->acountID = newID;
+        }
+        void updateBalance(double newBalance){
+            this->balance = newBalance;
+        }
         void updatePassword(string newPassWord)
         {
             this->pasword = newPassWord;
