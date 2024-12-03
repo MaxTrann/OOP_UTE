@@ -243,8 +243,11 @@ class User {
         {
             if(this->transactionCash.empty())
                 cout << "Giao dich bang tien mat rong" << endl;
-            else
-                this->transactionCash.clear();
+            for(int i = 0; i < this->transactionCash.size(); i++)
+            {
+                if(this->transactionCash[i].getStatus() == true)
+                    this->transactionCash.erase(this->transactionCash.begin() + i);
+            }
             if(this->account.empty())
                 cout << "Khong ton tai tai khoan" << endl;
             for(int i = 0; i < this->account.size(); i++)
