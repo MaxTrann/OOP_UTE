@@ -578,7 +578,7 @@ class User {
                     while(this->account[i].checkPassWord(pass) == false)
                     {
                         if(count == 5)  return;
-                        cout << "Mat khau khong chinh xac (con " << 5 - count << "lan nhap)" << endl;
+                        cout << "Mat khau khong chinh xac (con " << 5 - count << " lan nhap)" << endl;
                         cout << "Vui long nhap lai mat khau: ";
                         pass = getMaskedPassword();
                         count ++;
