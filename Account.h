@@ -16,6 +16,10 @@ class Account{
         vector <Transaction> historyTrans;
         vector <Loan_Borrow> listLoan_Borrow;
     public:
+        string getAccountID()
+        {
+            return this->acountID;
+        }
         bool login(string name)
         {
             if(name == this->accountName)
