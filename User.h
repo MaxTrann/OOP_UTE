@@ -2,13 +2,13 @@
 #include <string>
 #include <algorithm>
 #include <vector>
-#include"Account.h"
-#include"Loan_Borrow.h"
-#include"Transaction.h"
-#include"Transfer.h"
+#include "Account.h"
+#include "Loan_Borrow.h"
+#include "Transaction.h"
+#include "Transfer.h"
 #include "masked_password.h"
 using namespace std;
-class User{
+class User {
     private:
         string userID; //CCCD
         string name;
@@ -21,24 +21,24 @@ class User{
     public:
         void input()
         {
-            cout << "Nhap userID: ";  getline(cin, this->userID);
-            cout << "Nhap ten user: ";  getline(cin, this->name);
-            cout << "Nhap email: "; getline(cin, this->email);
-            cout << "Nhap password: "; this->password = getMaskedPassword();
+            cout << "Nhap User ID: ";  getline(cin, this->userID);
+            cout << "Nhap ten User: ";  getline(cin, this->name);
+            cout << "Nhap Email: "; getline(cin, this->email);
+            cout << "Nhap Password: "; this->password = getMaskedPassword();
             cout << "Nhap SDT: "; getline(cin, this->sdt);
             cout << "Nhap so luong tien mat: "; cin >> this->cash;
         }
         void addAcount()
         {
             Account newAcount;
-            while(true){
+            while(true) {
                 newAcount.input();
                 bool flag = true;
                 for(int i = 0; i < this->account.size(); i++)
                 {
                     if(this->account[i].getNameAcount() == newAcount.getNameAcount())
                     {
-                        cout << "Ten tai khoan trung da ton tai, vui long nhap lai !" << endl;
+                        cout << "Ten tai khoan da ton tai, vui long nhap lai!" << endl;
                         flag = false;
                         break;
                     }
@@ -46,8 +46,9 @@ class User{
                 if(flag == true) break;
             }
             account.push_back(newAcount);
-            cout << "Tai khoan moi da duoc them vao" << endl;
+            cout << "Tai khoan moi da duoc them vao." << endl;
         }
+
         void display()
         {
             // Kiểm tra xem thông tin người dùng đã được nhập hay chưa
@@ -64,7 +65,7 @@ class User{
             double balanceCash = this->getBalanceCash(); // Số dư tiền mặt
             double balanceTotal = this->getBalanceCashVirtual(); // Tổng số dư (tiền mặt + tài khoản)
 
-            cout << "================== Thong Tin So Du ==================" << endl;
+            cout << "\n================== Thong Tin So Du ==================" << endl;
             cout << "So du tien mat: " << fixed << setprecision(2) << balanceCash << " VND" << endl;
             cout << "Tong so du (tien mat + tai khoan): " << fixed << setprecision(2) << balanceTotal << " VND" << endl;
             cout << "=====================================================" << endl;
@@ -77,9 +78,9 @@ class User{
 
             cout << "================== So Du Tat Ca Tai Khoan ==================" << endl;
             for (int i = 0; i < this->account.size(); i++) {
-                cout << "Tai khoan " << i + 1 << ":" << endl;
-                cout << "  Ten tai khoan: " << this->account[i].getNameAcount() << endl;
-                cout << "  So du hien tai: " << fixed << setprecision(2) 
+                cout << "\nTai khoan " << i + 1 << ":" << endl;
+                cout << "\tTen tai khoan: " << this->account[i].getNameAcount() << endl;
+                cout << "\tSo du hien tai: " << fixed << setprecision(2) 
                     << this->account[i].getBalance() << " VND" << endl;
                 cout << "----------------------------------------------------------" << endl;
             }
