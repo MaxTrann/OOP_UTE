@@ -21,10 +21,11 @@ void showMenu() {
     cout << "13. Cap nhat khoan vay" << endl;
     cout << "14. Cap nhat khoan muon" << endl;
     cout << "15. Xoa giao dich" << endl;
-    cout << "16. Xoa khoan vay/muon" << endl;
-    cout << "17. Thoat" << endl;
+    cout << "16. Xoa khoan vay" << endl;
+    cout << "17. Xoa khoan muon" << endl;
+    cout << "18. Thoat" << endl;
     cout << "=============================================" << endl;
-    cout << "Chon mot tuy chon: ";
+    cout << "\nChon mot tuy chon: ";
 }
 
 int main() {
@@ -112,11 +113,14 @@ int main() {
                 user.deleteTransaction();
                 break;
             case 16:
-                cout << "=== Xoa khoan vay/muon ===" << endl;
+                cout << "=== Xoa khoan vay ===" << endl;
                 user.deleteLoan();
-                user.deleteBorrow();
                 break;
             case 17:
+                cout << "=== Xoa khoan muon ===" << endl;
+                user.deleteBorrow();
+                break;
+            case 18:
                 cout << "Thoat chuong trinh. Tam biet!" << endl;
                 return 0;
             default:
