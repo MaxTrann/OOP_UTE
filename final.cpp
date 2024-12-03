@@ -57,6 +57,7 @@ int main() {
                 cout << "1. Them khoan vay" << endl;
                 cout << "2. Them khoan muon" << endl;
                 int subChoice;
+                cout << "Nhap lua chon: ";
                 cin >> subChoice;
 
                 cin.ignore();
