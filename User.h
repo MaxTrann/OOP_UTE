@@ -148,10 +148,10 @@ class User {
         }
         void deleteAcount()
         {
-             string name;
+            string name;
             bool check = true;
             cout << "Nhap ten tai khoan muon xoa: ";
-            cin.ignore();
+            
             getline(cin, name);
             for(int i = 0; i < this->account.size(); i++)
             {
