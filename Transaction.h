@@ -34,6 +34,10 @@ class Transaction{
         {
             this->amount = newAmount;
         }
+        bool getStatus()
+        {
+            return this->statusTrans;
+        }
         void updateStatusTrans()
         {
             this->statusTrans = ! this->statusTrans;
