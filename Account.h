@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <iomanip>
 #include "Transaction.h"
 #include "Loan_Borrow.h"
 #include "Transaction.h"
@@ -90,7 +91,7 @@ class Account{
         {
             cout << "ID tai khoan: " << this->acountID << endl;
             cout << "Ten tai khoan: " << this->accountName << endl;
-            cout << "So du tai khoan: " << this->balance << endl;
+            cout << "So du tai khoan: " << fixed << setprecision(2) << this->balance << endl;
         }
         void displayTransfer(){
             cout << "ID tai khoan: " << this->acountID << endl;

@@ -373,6 +373,7 @@ class User{
         }
         void addLoan()
         {
+            cin.ignore();
             cout << "Nhap ten tai khoan: ";
             string name; getline(cin, name);
             bool check = true;
@@ -480,7 +481,7 @@ class User{
         void addBorrow()
         {
             cout << "Nhap ten tai khoan: ";
-            string name; 
+            string name; getline(cin, name);
             bool check = true;
             for(int i = 0; i < this->account.size(); i++)
             {
