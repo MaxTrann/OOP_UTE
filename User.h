@@ -617,7 +617,7 @@ class User {
         {
             if(this->account.empty()){
                 cout << "Khong ton tai tai khoan" << endl;
-                return
+                return;
             }
             cout << "Thong tin cac tai khoan da duoc them: " << endl;
             for(int i = 0; i < this->account.size(); i++)
