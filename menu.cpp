@@ -18,9 +18,9 @@ int main()
 {
     User user;
     int choice;
-    cout << "=======================LOGIN======================" << endl;
-    cout << "|      VUI LONG NHAP NGUOI DUNG DEN BAT DAU      |" << endl;
-    cout << "|________________________________________________|" << endl;
+    cout << "\n\t\t=======================LOGIN======================" << endl;
+    cout << "\t\t|      VUI LONG NHAP NGUOI DUNG DE BAT DAU       |" << endl;
+    cout << "\t\t|________________________________________________|" << endl;
     user.input();
     system("cls");
     while (true) 
