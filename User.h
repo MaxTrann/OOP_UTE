@@ -20,40 +20,88 @@ class User {
         vector <Transaction> transactionCash;
     public:
         void input()
-        {
-            cout << "Nhap User ID: ";  getline(cin, this->userID);
-            cout << "Nhap ten User: ";  getline(cin, this->name);
-            cout << "Nhap Email: "; getline(cin, this->email);
-            cout << "Nhap Password: "; this->password = getMaskedPassword();
+        { 
+            while (true) 
+            {
+                cout << "Nhap User ID: ";  
+                getline(cin, this->userID);
+                if (!this->userID.empty() && all_of(this->userID.begin(), this->userID.end(), [](char c) { return isalnum(c); })) {
+                    break;
+                } else {
+                    cout << "User ID khong hop le. Vui long nhap lai!" << endl;
+                }
+            }
+
+            cout << "Nhap ten User: ";  
+            getline(cin, this->name);
+
+            // Nhập email và kiểm tra định dạng
+            while (true) 
+            {
+                cout << "Nhap Email: "; 
+                getline(cin, this->email);
+                if (this->email.find('@') != string::npos && this->email.find('.') != string::npos) {
+                    break;
+                } else {
+                    cout << "Email khong hop le. Vui long nhap lai!" << endl;
+                }
+            }
+
+            while (true) 
+            {
+                cout << "Nhap Password: "; 
+                this->password = getMaskedPassword();
+                
+                // Kiểm tra độ dài mật khẩu
+                if (this->password.size() >= 8) { 
+                    break;
+                } else {
+                    cout << "Password phai co it nhat 8 ky tu. Vui long nhap lai!" << endl;
+                }
+            }
+
             cout << "Nhap SDT: "; getline(cin, this->sdt);
-            cout << "Nhap so luong tien mat: "; cin >> this->cash;
+
+            // Nhập tiền mặt và kiểm tra số dương
+            while (true) 
+            {
+                cout << "Nhap so luong tien mat: ";
+                cin >> this->cash;
+                if (this->cash >= 0) {
+                    break;
+                } else {
+                    cout << "So tien mat phai la so duong, vui long nhap lai!" << endl;
+                }
+            }
+
+            // Dọn sạch bộ đệm nhập để tránh xung đột với các nhập liệu sau
+            cin.ignore();
         }
+
         void addAcount()
         {
             Account newAcount;
-            while(true) {
+            while(true) 
+            {
                 newAcount.input();
                 bool flag = true;
                 for(int i = 0; i < this->account.size(); i++)
                 {
-                    if(newAcount.getAccountID() == this->account[i].getAccountID())
+                    if(this->account[i].getNameAcount() == newAcount.getNameAcount() || newAcount.getAccountID() == this->account[i].getAccountID())
                     {
-                        cout << "ID tai khoan da ton tai, vui long nhap lai!" << endl;
-                        flag = false;
-                        break;
-                    }
-                    if(this->account[i].getNameAcount() == newAcount.getNameAcount())
-                    {
-                        cout << "Ten tai khoan da ton tai, vui long nhap lai!" << endl;
+                        cout << "Ten (hoac ID) cua tai khoan da ton tai. Vui long nhap lai!" << endl;
                         flag = false;
                         break;
                     }
                 }
+                cin.ignore();
                 if(flag == true) break;
+
             }
             account.push_back(newAcount);
             cout << "Tai khoan moi da duoc them vao." << endl;
-        }   
+        }
+
         void display()
         {
             // Kiểm tra xem thông tin người dùng đã được nhập hay chưa
@@ -76,7 +124,7 @@ class User {
             cout << "=====================================================" << endl;
         }
         void displayAllAccountBalances() {
-            if (this->account.empty()) {
+             if (this->account.empty()) {
                 cout << "Khong co tai khoan nao!" << endl;
                 return;
             }
@@ -100,7 +148,7 @@ class User {
         }
         void deleteAcount()
         {
-            string name;
+             string name;
             bool check = true;
             cout << "Nhap ten tai khoan muon xoa: ";
             cin.ignore();
@@ -115,10 +163,12 @@ class User {
                     if(this->account[i].checkPassWord(passWord) == true)
                     {
                         this->account.erase(this->account.begin() + i);
+                        cout << "Tai khoan da duoc xoa thanh cong!" << endl;
+                        return;
                     }
                     else
                     {
-                        cout << "Mat khau sai ! khong the xoa tai khoan !" << endl;
+                        cout << "Mat khau sai! khong the xoa tai khoan !" << endl;
                     }
                 }
             }
@@ -127,6 +177,7 @@ class User {
                 cout << "Ten tai khoan khong ton tai !";
             }
         }
+
         void updateAccount()
         {
             cout << "Nhap ten tai khoan muon sua: ";
@@ -141,7 +192,7 @@ class User {
                     while(this->account[i].checkPassWord(checkpass) == false)
                     {
                         if(count == 5)  return;
-                        cout << "Mat khau khong chinh xac (con " << 5 - count << "lan nhap)" << endl;
+                        cout << "Mat khau khong chinh xac (con " << 5 - count << " lan nhap)" << endl;
                         cout << "Vui long nhap lai mat khau: ";
                         checkpass = getMaskedPassword();
                         count ++;
@@ -163,7 +214,7 @@ class User {
                             {
                                 if(this->account[i].getNameAcount() == newName)
                                 {
-                                    cout << "Ten tai khoan da ton tai ! vui long nhap lai";
+                                    cout << "Ten tai khoan da ton tai! vui long nhap lai";
                                     flag = false;
                                     break;
                                 }
@@ -171,6 +222,8 @@ class User {
                             if(flag == true) break;
                         }
                         this->account[i].updateName(newName);
+                        cout << "Ten tai khoan da duoc cap nhat thanh cong!" << endl;
+
                     }
                     else if(choice == 2)
                     {
@@ -179,6 +232,8 @@ class User {
                         cin.ignore();
                         newPassWord = getMaskedPassword();
                         this->account[i].updatePassword(newPassWord);
+                        cout << "Mat khau da duoc thay doi thanh cong!" << endl;
+
                     }
                     else if (choice == 3)
                     {
@@ -186,6 +241,7 @@ class User {
                         double newBalance;
                         cin >> newBalance;
                         this->account[i].updateBalance(newBalance);
+                        cout << "So du tai khoan da duoc cap nhat thanh cong!" << endl;
                     }
                     else 
                     {
