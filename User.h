@@ -190,6 +190,7 @@ class User{
             if(choice == 1)
             {
                 Transaction x;
+                cin.ignore();
                 x.input();
                 while(x.getAmount() > this->cash)
                 {
@@ -355,12 +356,15 @@ class User{
         }
         void transactionHistory()
         {
+            cout << "Cac giao dich tien mat: " << endl;
             for(int i = 0;i < this->transactionCash.size(); i++)
             {
                 this->transactionCash[i].display();
             }
+            cout << "Cac giao dich bang tai khoan: " << endl;
             for(int i = 0; i < this->account.size(); i++)
             {
+                cout << "Giao dich cua tai khoan: " << this->account[i].getNameAcount() << endl;
                 for(int j = 0; j < this->account[i].getTransaction().size(); j++)
                 {
                     this->account[i].getTransaction()[j].display();
