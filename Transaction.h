@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include "DateTime.h"
 using namespace std;
@@ -53,7 +54,7 @@ class Transaction{
         {
             cout << "Thong tin giao dich: \n";
             cout << "ID giao dich: " << this->transID << endl;
-            cout << "So tien giao dich: " << this->amount << endl;
+            cout << "So tien giao dich: " << fixed << setprecision(2) << this->amount << endl;
             cout << "Thoi gian giao dich: "; this->Date.display();
             cout << "Trang thai giao dich: " << (this->statusTrans ? "Thanh cong" : "Chua thanh cong") << endl;
             cout << "Loai giao dich: " << this->typeTrans << endl;
