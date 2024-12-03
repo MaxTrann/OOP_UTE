@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <iomanip>
 #include "Transaction.h"
 #include "Loan_Borrow.h"
 #include "Transaction.h"
 #include "DateTime.h"
+#include "masked_password.h"
 using namespace std;
 class Account{
     private:
@@ -55,7 +55,7 @@ class Account{
         {
             cout << "Nhap ID tai khoan: "; getline(cin, this->acountID);
             cout << "Nhap ten tai khoan: "; getline(cin, this->accountName);
-            cout << "Nhap mat khau: "; getline(cin, this->pasword);
+            cout << "Nhap mat khau: "; this->pasword = getMaskedPassword();
             cout << "Nhap so du tai khoan: "; cin >> this->balance;
         }
         void inputTransfer(){

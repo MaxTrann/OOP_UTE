@@ -8,8 +8,6 @@ using namespace std;
 string getMaskedPassword() {
     string password;
     char ch;
-
-    cout << "Enter password: ";
     while ((ch = _getch()) != '\r') {
         if (ch == '\b') {
             if (!password.empty()) {
