@@ -45,7 +45,7 @@ class User{
                 if(flag == true) break;
             }
             account.push_back(newAcount);
-            cout << "Tai khoang moi da duoc them vao" << endl;
+            cout << "Tai khoan moi da duoc them vao" << endl;
         }
         void display()
         {
