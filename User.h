@@ -615,8 +615,10 @@ class User {
         }
         void reportAccount()
         {
-            if(this->account.empty())
+            if(this->account.empty()){
                 cout << "Khong ton tai tai khoan" << endl;
+                return
+            }
             cout << "Thong tin cac tai khoan da duoc them: " << endl;
             for(int i = 0; i < this->account.size(); i++)
                 this->account[i].display();
