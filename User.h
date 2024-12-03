@@ -76,7 +76,6 @@ class User {
                 return;
             }
 
-            cout << "================== So Du Tat Ca Tai Khoan ==================" << endl;
             for (int i = 0; i < this->account.size(); i++) {
                 cout << "\nTai khoan " << i + 1 << ":" << endl;
                 cout << "\tTen tai khoan: " << this->account[i].getNameAcount() << endl;

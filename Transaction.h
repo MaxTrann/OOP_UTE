@@ -20,7 +20,7 @@ class Transaction{
             this->Date.input();
             this->statusTrans = true; // mac dinh giao dich luon thanh cong
             cin.ignore();
-            cout << "Nhap loai giao dich: ";    getline(cin, this->typeTrans);
+            cout << "Nhap noi dung giao dich: ";    getline(cin, this->typeTrans);
         }
         virtual void inputLoanBorrow()
         {
