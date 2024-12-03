@@ -390,9 +390,10 @@ class User {
             for(int i = 0; i < this->account.size(); i++)
             {
                 cout << "Giao dich cua tai khoan: " << this->account[i].getNameAcount() << endl;
-                for(int j = 0; j < this->account[i].getTransaction().size(); j++)
+                auto& transactions = this->account[i].getTransaction();
+                for(int j = 0; j < transactions.size(); j++)
                 {
-                    this->account[i].getTransaction()[j].display();
+                    transactions[j].display();
                 }
             }
         }
