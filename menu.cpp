@@ -6,11 +6,11 @@ using namespace std;
 // Ham hien thi menu
 void showMenu() 
 {
-    cout <<"\n\t\t+-----------------------------MENU WINDOW----------------------------+";
-    cout <<"\n\t\t|                                                                    |";
-    cout <<"\n\t\t| 0. Exit Program                       2. Transaction Option Window |";
-    cout <<"\n\t\t| 1. Account Option Window              3. Report Option Window      |";
-    cout <<"\n\t\t|____________________________________________________________________|" << endl;
+    cout <<"\n\t\t\t\t+-----------------------------MENU WINDOW----------------------------+";
+    cout <<"\n\t\t\t\t|                                                                    |";
+    cout <<"\n\t\t\t\t| 0. Exit Program                       2. Transaction Option Window |";
+    cout <<"\n\t\t\t\t| 1. Account Option Window              3. Report Option Window      |";
+    cout <<"\n\t\t\t\t|____________________________________________________________________|" << endl;
     cout << "\nChon thao tac: ";
 }
 
@@ -36,11 +36,11 @@ int main()
             {
                 while (true)
                 {
-                    cout <<"\n\t\t\t+----------------------ACCOUNT WINDOW-----------------------+";
-                    cout <<"\n\t\t\t|                     0. Exit Window                        |";
-                    cout <<"\n\t\t\t| 1. Them nguoi dung                  3. Xoa tai khoan      |";
-                    cout <<"\n\t\t\t| 2. Them tai khoan                   4. Cap nhat tai khoan |";
-                    cout <<"\n\t\t\t|___________________________________________________________|" << endl;
+                    cout <<"\n\t\t\t\t+----------------------ACCOUNT WINDOW-----------------------+";
+                    cout <<"\n\t\t\t\t|                     0. Exit Window                        |";
+                    cout <<"\n\t\t\t\t| 1. Them nguoi dung                  3. Xoa tai khoan      |";
+                    cout <<"\n\t\t\t\t| 2. Them tai khoan                   4. Cap nhat tai khoan |";
+                    cout <<"\n\t\t\t\t|___________________________________________________________|" << endl;
 
                     int Acc_Choice;
                     cout << "\nNhap lua chon thao tac: ";
@@ -60,7 +60,6 @@ int main()
                         case 0:
                             break;
                         case 1:
-
                             cout << "=== Them nguoi dung moi ===" << endl;
                             user.input();
                             cout << "Nguoi dung da duoc them thanh cong!" << endl;
@@ -88,13 +87,13 @@ int main()
             {
                 while (true)
                 {
-                    cout <<"\n\t\t\t+-----------------------Transaction WINDOW----------------------+";
-                    cout <<"\n\t\t\t|                        0. Exit Window                         |";
-                    cout <<"\n\t\t\t| 1. Thuc hien giao dich                 5. Cap nhat khoan vay  |";
-                    cout <<"\n\t\t\t| 2. Thuc hien vay/muon                  6. Cap nhat khoan muon |";
-                    cout <<"\n\t\t\t| 3. Cap nhat giao dich                  7. Xoa khoan vay       |";
-                    cout <<"\n\t\t\t| 4. Xoa giao dich                       8. Xoa khoan muon      |";
-                    cout <<"\n\t\t\t|_______________________________________________________________|" << endl;
+                    cout <<"\n\t\t\t\t+-----------------------TRANSACTION WINDOW----------------------+";
+                    cout <<"\n\t\t\t\t|                        0. Exit Window                         |";
+                    cout <<"\n\t\t\t\t| 1. Thuc hien giao dich                 5. Cap nhat khoan vay  |";
+                    cout <<"\n\t\t\t\t| 2. Thuc hien vay/muon                  6. Cap nhat khoan muon |";
+                    cout <<"\n\t\t\t\t| 3. Cap nhat giao dich                  7. Xoa khoan vay       |";
+                    cout <<"\n\t\t\t\t| 4. Xoa giao dich                       8. Xoa khoan muon      |";
+                    cout <<"\n\t\t\t\t|_______________________________________________________________|" << endl;
 
                     int Trans_Choice;
                     cout << "\nNhap lua chon thao tac: ";
@@ -173,10 +172,10 @@ int main()
             {
                 while (true)
                 {
-                    cout <<"\n\t\t\t+------------------------REPORT WINDOW------------------------+";
-                    cout <<"\n\t\t\t|                        0. Exit Window                       |";
-                    cout <<"\n\t\t\t| 1. Thong tin tai khoan                 2. Lich su giao dich |";
-                    cout <<"\n\t\t\t|_____________________________________________________________|" << endl;
+                    cout <<"\n\t\t\t\t+-------------------------REPORT WINDOW-------------------------+";
+                    cout <<"\n\t\t\t\t|                         0. Exit Window                        |";
+                    cout <<"\n\t\t\t\t| 1. Thong tin tai khoan                   2. Lich su giao dich |";
+                    cout <<"\n\t\t\t\t|_______________________________________________________________|" << endl;
 
                     int Rp_Choice;
                     cout << "\nNhap lua chon thao tac: ";
@@ -198,11 +197,11 @@ int main()
                         case 1:
                             while (true)
                             {
-                                cout <<"\n\t\t\t+-----------------------------------ACCOUNT-----------------------------------+";
-                                cout <<"\n\t\t\t|                              0. Exit Window                                 |";
-                                cout <<"\n\t\t\t| 1. Xuat thong tin nguoi dung                3. Xem thong tin so du          |";
-                                cout <<"\n\t\t\t| 2. Xuat danh sach tai khoan                 4. Xem so du cua tung tai khoan |";
-                                cout <<"\n\t\t\t|_____________________________________________________________________________|" << endl;
+                                cout <<"\n\t\t\t\t+-------------------------------------ACCOUNT-------------------------------------+";
+                                cout <<"\n\t\t\t\t|                                 0. Exit Window                                  |";
+                                cout <<"\n\t\t\t\t| 1. Xuat thong tin nguoi dung                    3. Xem thong tin so du          |";
+                                cout <<"\n\t\t\t\t| 2. Xuat danh sach tai khoan                     4. Xem so du cua tung tai khoan |";
+                                cout <<"\n\t\t\t\t|_________________________________________________________________________________|" << endl;
 
                                 int Acc_Rp_Choice;
                                 cout << "\nNhap lua chon thao tac: ";
@@ -216,7 +215,6 @@ int main()
                                     }
                                 } while (Acc_Rp_Choice < 0 && Acc_Rp_Choice > 4);
 
-                                cin.ignore();
                                 switch (Acc_Rp_Choice)
                                 {
                                     case 0:
@@ -247,12 +245,12 @@ int main()
                         case 2:
                             while (true)
                             {
-                                cout <<"\n\t\t\t+-----------------------BALANCE-----------------------+";
-                                cout <<"\n\t\t\t|                   0. Exit Window                    |";
-                                cout <<"\n\t\t\t|           1. Hien thi lich su giao dich             |";
-                                cout <<"\n\t\t\t|           2. Hien thi bao cao tai khoan             |";
-                                cout <<"\n\t\t\t|           3. Hien thi bao cao khoan vay/muon        |";
-                                cout <<"\n\t\t\t|_____________________________________________________|" << endl;
+                                cout <<"\n\t\t\t\t+-----------------------BALANCE-----------------------+";
+                                cout <<"\n\t\t\t\t|                   0. Exit Window                    |";
+                                cout <<"\n\t\t\t\t|           1. Hien thi lich su giao dich             |";
+                                cout <<"\n\t\t\t\t|           2. Hien thi bao cao tai khoan             |";
+                                cout <<"\n\t\t\t\t|           3. Hien thi bao cao khoan vay/muon        |";
+                                cout <<"\n\t\t\t\t|_____________________________________________________|" << endl;
 
                                 int Bal_Rp_Choice;
                                 cout << "\nNhap lua chon thao tac: ";

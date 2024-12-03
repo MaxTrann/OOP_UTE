@@ -214,7 +214,7 @@ class User {
                             {
                                 if(this->account[i].getNameAcount() == newName)
                                 {
-                                    cout << "Ten tai khoan da ton tai! vui long nhap lai";
+                                    cout << "Ten tai khoan da ton tai! Vui long nhap lai." << endl;
                                     flag = false;
                                     break;
                                 }
