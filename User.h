@@ -301,7 +301,7 @@ class User {
             }
 
             for (auto& acc : account) {
-                auto transactions = acc.getTransaction();
+                auto& transactions = acc.getTransaction();
                 for (auto& trans : transactions) {
                     if (trans.getTransID() == transID) {
                         cout << "Giao dich tim thay trong tai khoan:\n";
@@ -325,7 +325,7 @@ class User {
                                 break;
                             }
                             case 2: {
-                                cout << "Nhap loai giao dich moi: ";
+                                cout << "Nhap noi dung giao dich moi: ";
                                 string newType;
                                 cin.ignore();
                                 getline(cin, newType);
@@ -416,7 +416,7 @@ class User {
             string loanID;
             cin >> loanID;
             for (auto& acc : account) {
-                auto loans = acc.getLoan_Borrow();
+                auto &loans = acc.getLoan_Borrow();
                 for (auto& loan : loans) {
                     if (loan.getTransID() == loanID && loan.getType() == 0) {
                         cout << "Khoan vay/muon tim thay\n";
@@ -524,7 +524,7 @@ class User {
             string BorrowID; cin >> BorrowID;
             for(auto &acc : account)
             {
-                auto borrows = acc.getLoan_Borrow();
+                auto &borrows = acc.getLoan_Borrow();
                 for(auto &borrow : borrows)
                 {
                     if(borrow.getTransID() == BorrowID && borrow.getType() == 1)

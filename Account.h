@@ -39,11 +39,11 @@ class Account{
         {
             return this->accountName;
         }
-        vector <Transaction> getTransaction()
+        vector <Transaction> &getTransaction()
         {
             return this->historyTrans;
         }
-        vector <Loan_Borrow> getLoan_Borrow()
+        vector <Loan_Borrow> &getLoan_Borrow()
         {
             return this->listLoan_Borrow;
         }
