@@ -6,10 +6,11 @@
 #include"Loan_Borrow.h"
 #include"Transaction.h"
 #include"Transfer.h"
+#include "masked_password.h"
 using namespace std;
 class User{
     private:
-        long long userID; //CCCD
+        string userID; //CCCD
         string name;
         string email;
         string password;
@@ -20,10 +21,10 @@ class User{
     public:
         void input()
         {
-            cout << "Nhap userID: ";    cin >> this->userID; cin.ignore();
+            cout << "Nhap userID: ";  getline(cin, this->userID);
             cout << "Nhap ten user: ";  getline(cin, this->name);
             cout << "Nhap email: "; getline(cin, this->email);
-            cout << "Nhap password: "; getline(cin, password);
+            cout << "Nhap password: "; this->password = getMaskedPassword();
             cout << "Nhap SDT: "; getline(cin, this->sdt);
             cout << "Nhap so luong tien mat: "; cin >> this->cash;
         }
@@ -50,7 +51,7 @@ class User{
         void display()
         {
             // Kiểm tra xem thông tin người dùng đã được nhập hay chưa
-            if (this->name.empty() || this->email.empty() || this->password.empty() || this->userID < 0) {
+            if (this->name.empty() || this->email.empty() || this->password.empty() || this->userID.empty()) {
                 cout << "Chua co thong tin nguoi dung. Vui long nhap thong tin truoc!" << endl;
                 return;
             }
@@ -104,9 +105,8 @@ class User{
                 if(this->account[i].getNameAcount() == name)
                 {
                     check = false;
-                    string passWord;
                     cout << "Nhap mat khau tai khoan: ";
-                    getline(cin, passWord);
+                    string passWord = getMaskedPassword();
                     if(this->account[i].checkPassWord(passWord) == true)
                     {
                         this->account.erase(this->account.begin() + i);
@@ -131,14 +131,14 @@ class User{
                 if(this->account[i].getNameAcount() == name)
                 {
                     cout << "Nhap mat khau de xac minh: ";
-                    string checkpass;
+                    string checkpass = getMaskedPassword();
                     int count = 0;
                     while(this->account[i].checkPassWord(checkpass) == false)
                     {
                         if(count == 5)  return;
                         cout << "Mat khau khong chinh xac (con " << 5 - count << "lan nhap)" << endl;
                         cout << "Vui long nhap lai mat khau: ";
-                        cin >> checkpass;
+                        checkpass = getMaskedPassword();
                         count ++;
                     }
                     cout << "1. Ten tai khoan" << endl;
@@ -171,7 +171,7 @@ class User{
                         cout << "Nhap mat khau moi: ";
                         string newPassWord;
                         cin.ignore();
-                        getline(cin, newPassWord);
+                        newPassWord = getMaskedPassword();
                         this->account[i].updatePassword(newPassWord);
                     }
                     else 
@@ -214,14 +214,14 @@ class User{
                         flag = false;
                         cout << "Nhap mat khau: ";
                         string passWord;
-                        getline(cin, passWord);
+                        passWord = getMaskedPassword();
                         int count = 0;
                         while(this->account[i].checkPassWord(passWord) == false)
                         {
                             if(count == 5)  return;
                             cout << "Mat khau khong chinh xac (con " << 5 - count << "lan nhap)" << endl;
                             cout << "Vui long nhap lai mat khau: ";
-                            cin >> passWord;
+                            passWord = getMaskedPassword();
                             count ++;
                         }
                         this->account[i].makeTrans();
@@ -356,12 +356,12 @@ class User{
         }
         void transactionHistory()
         {
-            cout << "Cac giao dich tien mat: " << endl;
+            cout << "-->Cac giao dich tien mat: " << endl;
             for(int i = 0;i < this->transactionCash.size(); i++)
             {
                 this->transactionCash[i].display();
             }
-            cout << "Cac giao dich bang tai khoan: " << endl;
+            cout << "-->Cac giao dich bang tai khoan: " << endl;
             for(int i = 0; i < this->account.size(); i++)
             {
                 cout << "Giao dich cua tai khoan: " << this->account[i].getNameAcount() << endl;
@@ -373,7 +373,6 @@ class User{
         }
         void addLoan()
         {
-            cin.ignore();
             cout << "Nhap ten tai khoan: ";
             string name; getline(cin, name);
             bool check = true;
@@ -383,14 +382,14 @@ class User{
                 {
                     check = false;
                     cout << "Nhap mat khau: ";
-                    string pass; getline(cin, pass);
+                    string pass = getMaskedPassword();
                     int count = 0;
                     while(this->account[i].checkPassWord(pass) == false)
                     {
                         if(count == 5)  return;
-                        cout << "Mat khau khong chinh xac (con " << 5 - count << "lan nhap)" << endl;
+                        cout << "Mat khau khong chinh xac (con " << 5 - count << " lan nhap)" << endl;
                         cout << "Vui long nhap lai mat khau: ";
-                        getline(cin, pass);
+                        pass = getMaskedPassword();
                         count ++;
                     }
                     Loan_Borrow x;
@@ -481,7 +480,8 @@ class User{
         void addBorrow()
         {
             cout << "Nhap ten tai khoan: ";
-            string name; getline(cin, name);
+            string name; 
+            getline(cin, name);
             bool check = true;
             for(int i = 0; i < this->account.size(); i++)
             {
@@ -489,7 +489,7 @@ class User{
                 {
                     check = false;
                     cout << "Nhap mat khau: ";
-                    string pass; getline(cin, pass);
+                    string pass = getMaskedPassword();
                     int count = 0;
                     while(this->account[i].checkPassWord(pass) == false)
                     {
