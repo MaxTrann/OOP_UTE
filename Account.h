@@ -124,7 +124,7 @@ class Account{
         void deleteLoan()
         {
             if(this->listLoan_Borrow.empty())
-                cout << this->accountName << " : khong ton tai khoan vay";
+                cout << this->accountName << " : khong ton tai khoan cho vay";
             for(int i = 0; i < this->listLoan_Borrow.size(); i++)
             {
                 if(this->listLoan_Borrow[i].getType() == 0 && this->listLoan_Borrow[i].getStatus() == true)

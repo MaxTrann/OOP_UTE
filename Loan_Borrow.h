@@ -8,19 +8,20 @@ class Loan_Borrow : public Transaction{
         string name;
         double interestRate;
         DateTime endDate;
-        bool status; // tra xong chua hoac nhan du chua
-        bool type; // vay hay muon 
+        bool status; // Đã trả đủ hay đã nhận đủ chưa
+        bool type; // vay hoặc cho vay
     public:
-        void input() override{
+        void input() override {
             Transaction :: inputLoanBorrow();
             cin.ignore();
-            cout << "Nhap ten nguoi vay/muon: "; getline(cin, this->name);
+            cout << "Nhap ten nguoi vay/cho vay: "; getline(cin, this->name);
             cout << "Nhap lai suat: "; cin >> this->interestRate;
-            cout << "Nhap thoi gian hoan thanh vay/muon: " << endl;; // hạn để trả hoặc nhận
+            cout << "Nhap thoi gian hoan thanh vay/cho vay: " << endl;; // hạn để trả hoặc nhận
             this->endDate.input();
-            this->status = false; // mac  dinh la chua hoan thanh
-            cout << "Nhap loai giao dich (0: vay, 1: muon): "; cin >> this->type;
+            this->status = false; // mac dinh la chua hoan thanh
+            cout << "Nhap loai giao dich (0: cho vay, 1: vay): "; cin >> this->type;
         }
+
         void notification()
         {
             if(this->status == true) 
@@ -28,14 +29,17 @@ class Loan_Borrow : public Transaction{
             else 
                 cout << "Chua hoan tra giao dich" << endl;
         }
+
         void updateStatus()
         {
             this->status = !this->status;
         }
+
         void updateInterestRate(double newInterestRate)
         {
             this->interestRate = newInterestRate;
         }
+        
         void updateEndDate()
         {
             cout << "Nhap lai thoi gian" << endl;
@@ -59,11 +63,11 @@ class Loan_Borrow : public Transaction{
         }
         void display() override{
             Transaction::displayLoanBorrow();
-            cout << "Ten nguoi vay/ muon: " << this->name << endl;
+            cout << "Ten nguoi vay/cho vay: " << this->name << endl;
             cout << "Lai suat: " << this->interestRate << " %" << endl;
             cout << "Thoi gian den han: "; this->endDate.display();
-            cout << "Trang thai vay/muon: "; this->notification();
-            cout << "Loai giao dich: "; this->type == 0 ? cout << "Vay" << endl : cout << "Muon" << endl;
+            cout << "Trang thai vay/cho vay: "; this->notification();
+            cout << "Loai giao dich: "; this->type == 0 ? cout << "Cho vay" << endl : cout << "Vay" << endl;
             cout << "So tien "; this->type == 0 ? cout << "nhan duoc la: " : cout << "can phai tra: ";
             cout << fixed << setprecision(2) << this->getData()<< " VND"<< endl;
         }

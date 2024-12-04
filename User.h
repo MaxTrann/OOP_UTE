@@ -484,17 +484,17 @@ class User {
         }
         void updateLoan()
         {
-            cout << "Nhap ID khoan vay/muon muon cap nhat: ";
+            cout << "Nhap ID khoan vay/cho vay muon cap nhat: ";
             string loanID;
             cin >> loanID;
             for (auto& acc : account) {
                 auto &loans = acc.getLoan_Borrow();
                 for (auto& loan : loans) {
                     if (loan.getTransID() == loanID && loan.getType() == 0) {
-                        cout << "Khoan vay/muon tim thay\n";
+                        cout << "Khoan vay/cho vay tim thay\n";
                         loan.display();
                         cout << "Chon thong tin can cap nhat:\n";
-                        cout << "1. So tien vay/muon\n";
+                        cout << "1. So tien vay/cho vay\n";
                         cout << "2. Lai suat\n";
                         cout << "3. Ngay het han\n";
                         cout << "4. Trang thai (Chua thanh toan / Da thanh toan)\n";
@@ -507,7 +507,7 @@ class User {
                                 double newAmount;
                                 cin >> newAmount;
                                 loan.updateAmount(newAmount);
-                                cout << "Cap nhat thanh cong so tien vay/muon.\n";
+                                cout << "Cap nhat thanh cong so tien vay/cho vay.\n";
                                 break;
                             }
                             case 2: {
@@ -536,8 +536,9 @@ class User {
                     }
                 }
             }
-        cout << "Khong tim thay khoan vay/muon voi ID da nhap.\n";
+        cout << "Khong tim thay khoan vay/cho vay voi ID da nhap.\n";
         }
+
         void deleteLoan()
         {
             if(this->account.empty())
@@ -546,6 +547,7 @@ class User {
                 this->account[i].deleteLoan();
             cout << "Da xoa thanh cong cac khoan vay da duoc hoan tra day du !" << endl;
         }
+
         void loanHistory()
         {
             for(int i = 0; i < this->account.size(); i++)
@@ -559,6 +561,7 @@ class User {
                 }
             }
         }
+
         void addBorrow()
         {
             cout << "Nhap ten tai khoan: ";
@@ -592,7 +595,7 @@ class User {
         }
         void updateBorow()
         {
-            cout << "Nhap ID khoan vay/muon muon cap nhat: ";
+            cout << "Nhap ID khoan vay/cho vay muon cap nhat: ";
             string BorrowID; cin >> BorrowID;
             for(auto &acc : account)
             {
@@ -601,10 +604,10 @@ class User {
                 {
                     if(borrow.getTransID() == BorrowID && borrow.getType() == 1)
                     {
-                        cout << "Khoan vay/muon tim thay" << endl;
+                        cout << "Khoan vay/cho vay tim thay" << endl;
                         borrow.display();
                         cout << "Chon thong tin can cap nhat:\n";
-                        cout << "1. So tien vay/muon\n";
+                        cout << "1. So tien vay/cho vay\n";
                         cout << "2. Lai suat\n";
                         cout << "3. Ngay het han\n";
                         cout << "4. Trang thai (Chua thanh toan / Da thanh toan)\n";
@@ -617,7 +620,7 @@ class User {
                                 double newAmount;
                                 cin >> newAmount;
                                 borrow.updateAmount(newAmount);
-                                cout << "Cap nhat thanh cong so tien vay/muon.\n";
+                                cout << "Cap nhat thanh cong so tien vay/cho vay.\n";
                                 break;
                             }
                             case 2: {
@@ -646,7 +649,7 @@ class User {
                     }
                 }
             }
-        cout << "Khong tim thay khoan vay/muon voi ID da nhap.\n";  
+        cout << "Khong tim thay khoan vay/cho vay voi ID da nhap.\n";  
         }
         void deleteBorrow()
         {
@@ -681,7 +684,7 @@ class User {
         }
         void reportLoan_Borrow()
         {
-            cout << "Thong tin khoan vay/ muon: " << endl;
+            cout << "Thong tin khoan vay/cho vay: " << endl;
             for(int i = 0; i < this->account.size(); i++)
             {
                 for(int j = 0; j < this->account[i].getLoan_Borrow().size(); j++)

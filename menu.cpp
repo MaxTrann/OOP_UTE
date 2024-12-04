@@ -93,10 +93,10 @@ int main()
                 {
                     cout <<"\n\t\t\t+-------------------------TRANSACTION WINDOW-------------------------+";
                     cout <<"\n\t\t\t|                          0. Exit Window                            |";
-                    cout <<"\n\t\t\t| 1. Thuc hien giao dich                      5. Cap nhat khoan vay  |";
-                    cout <<"\n\t\t\t| 2. Thuc hien vay/muon                       6. Cap nhat khoan muon |";
-                    cout <<"\n\t\t\t| 3. Cap nhat giao dich                       7. Xoa khoan vay       |";
-                    cout <<"\n\t\t\t| 4. Xoa giao dich                            8. Xoa khoan muon      |";
+                    cout <<"\n\t\t\t| 1. Thuc hien giao dich                   5. Cap nhat khoan cho vay |";
+                    cout <<"\n\t\t\t| 2. Thuc hien vay/cho vay                 6. Cap nhat khoan vay     |";
+                    cout <<"\n\t\t\t| 3. Cap nhat giao dich                    7. Xoa khoan cho vay      |";
+                    cout <<"\n\t\t\t| 4. Xoa giao dich                         8. Xoa khoan vay          |";
                     cout <<"\n\t\t\t|____________________________________________________________________|" << endl;
 
                     int Trans_Choice;
@@ -121,9 +121,9 @@ int main()
                             user.addTransaction();
                             break;
                         case 2:
-                            cout << "=== Thuc hien vay/muon ===" << endl;
-                            cout << "    1. Them khoan vay" << endl;
-                            cout << "    2. Them khoan muon" << endl;
+                            cout << "=== Thuc hien cho vay/vay ===" << endl;
+                            cout << "   1. Them khoan vay" << endl;
+                            cout << "   2. Them khoan cho vay" << endl;
                             int subChoice;
                             cout << "Nhap lua chon: ";
                             cin >> subChoice;
@@ -137,9 +137,9 @@ int main()
                             } while (subChoice != 1 && subChoice != 2);
                             
                             if (subChoice == 1)
-                                user.addLoan();
-                            else if (subChoice == 2)
                                 user.addBorrow();
+                            else if (subChoice == 2)
+                                user.addLoan();
                             break;
                         case 3:
                             cout << "=== Cap nhat giao dich ===" << endl;
@@ -150,19 +150,19 @@ int main()
                             user.deleteTransaction();
                             break;
                         case 5:
-                            cout << "=== Cap nhat khoan vay ===" << endl;
+                            cout << "=== Cap nhat khoan cho vay ===" << endl;
                             user.updateLoan();
                             break;
                         case 6:
-                            cout << "=== Cap nhat khoan muon ===" << endl;
+                            cout << "=== Cap nhat khoan vay ===" << endl;
                             user.updateBorow();
                             break;
                         case 7:
-                            cout << "=== Xoa khoan vay ===" << endl;
+                            cout << "=== Xoa khoan cho vay ===" << endl;
                             user.deleteLoan();
                             break;
                         case 8:
-                            cout << "=== Xoa khoan muon ===" << endl;
+                            cout << "=== Xoa khoan vay ===" << endl;
                             user.deleteBorrow();
                             break;
                     }
@@ -256,9 +256,9 @@ int main()
                             {
                                 cout <<"\n\t\t\t+------------------------------BALANCE-------------------------------+";
                                 cout <<"\n\t\t\t|                          0. Exit Window                            |";
-                                cout <<"\n\t\t\t|                   1. Hien thi lich su giao dich                    |";
-                                cout <<"\n\t\t\t|                   2. Hien thi bao cao tai khoan                    |";
-                                cout <<"\n\t\t\t|                   3. Hien thi bao cao khoan vay/muon               |";
+                                cout <<"\n\t\t\t|                 1. Hien thi lich su giao dich                      |";
+                                cout <<"\n\t\t\t|                 2. Hien thi bao cao tai khoan                      |";
+                                cout <<"\n\t\t\t|                 3. Hien thi bao cao khoan vay/cho vay              |";
                                 cout <<"\n\t\t\t|____________________________________________________________________|" << endl;
 
                                 int Bal_Rp_Choice;
@@ -287,7 +287,7 @@ int main()
                                         user.reportAccount();
                                         break;
                                     case 3:
-                                        cout << "=== Hien thi bao cao khoan vay/muon ===" << endl;
+                                        cout << "=== Hien thi bao cao khoan vay/cho vay ===" << endl;
                                         user.reportLoan_Borrow();
                                         break;
                                     
