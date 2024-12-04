@@ -26,7 +26,7 @@ int main()
     
     while (true) 
     {
-        // system("cls");
+        system("cls");
         showMenu();
         cin >> choice;
         cin.ignore();
@@ -40,7 +40,7 @@ int main()
 
             case 1:
             {
-                // system("cls");
+                system("cls");
                 while (true)
                 {
                     cout <<"\n\t\t\t+---------------------------ACCOUNT WINDOW---------------------------+";
@@ -88,6 +88,7 @@ int main()
 
             case 2:
             {
+                system("cls");
                 while (true)
                 {
                     cout <<"\n\t\t\t+-------------------------TRANSACTION WINDOW-------------------------+";
@@ -175,6 +176,7 @@ int main()
             {
                 while (true)
                 {
+                    system("cls");
                     cout <<"\n\t\t\t+----------------------------REPORT WINDOW---------------------------+";
                     cout <<"\n\t\t\t|                           0. Exit Window                           |";
                     cout <<"\n\t\t\t| 1. Thong tin tai khoan                      2. Thong tin giao dich |";
@@ -198,6 +200,7 @@ int main()
                         case 0:
                             break;
                         case 1:
+                            system("cls");
                             while (true)
                             {
                                 cout <<"\n\t\t\t+------------------------------ACCOUNT-------------------------------+";
@@ -248,6 +251,7 @@ int main()
                             }
                             break;
                         case 2:
+                            system("cls");
                             while (true)
                             {
                                 cout <<"\n\t\t\t+------------------------------BALANCE-------------------------------+";
