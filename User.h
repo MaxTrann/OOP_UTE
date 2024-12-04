@@ -593,7 +593,7 @@ class User {
             }
             if(check == true)   cout << "Ten tai khoan khong ton tai !" << endl; 
         }
-        void updateBorow()
+        void updateBorrow()
         {
             cout << "Nhap ID khoan vay/cho vay muon cap nhat: ";
             string BorrowID; cin >> BorrowID;

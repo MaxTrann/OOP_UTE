@@ -155,7 +155,7 @@ int main()
                             break;
                         case 6:
                             cout << "=== Cap nhat khoan vay ===" << endl;
-                            user.updateBorow();
+                            user.updateBorrow();
                             break;
                         case 7:
                             cout << "=== Xoa khoan cho vay ===" << endl;
