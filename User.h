@@ -5,7 +5,6 @@
 #include "Account.h"
 #include "Loan_Borrow.h"
 #include "Transaction.h"
-#include "Transfer.h"
 #include "masked_password.h"
 using namespace std;
 class User {
@@ -146,7 +145,7 @@ class User {
                 cout << "Ten tai khoan: " << acc.getNameAcount() << endl;
             }
         }
-        void deleteAcount()
+        void deleteAccount()
         {
             string name;
             bool check = true;

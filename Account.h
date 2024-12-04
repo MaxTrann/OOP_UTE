@@ -9,9 +9,9 @@
 using namespace std;
 class Account{
     private:
-        string acountID; // sửa chỗ nào thành string 
+        string acountID; // sửa chỗ này thành string 
         string accountName;
-        string pasword;
+        string password;
         double balance;
         vector <Transaction> historyTrans;
         vector <Loan_Borrow> listLoan_Borrow;
@@ -20,6 +20,7 @@ class Account{
         {
             return this->acountID;
         }
+
         bool login(string name)
         {
             if(name == this->accountName)
@@ -27,51 +28,58 @@ class Account{
             else
                 return false;
         }
+
         void updateName(string newName)
         {
             this->accountName = newName;
         }
+
         void updateID(string newID){
             this->acountID = newID;
         }
+
         void updateBalance(double newBalance){
             this->balance = newBalance;
         }
+
         void updatePassword(string newPassWord)
         {
-            this->pasword = newPassWord;
+            this->password = newPassWord;
         }
+
         double getBalance()
         {
             return this->balance;
         }
+
         string getNameAcount()
         {
             return this->accountName;
         }
+
         vector <Transaction> &getTransaction()
         {
             return this->historyTrans;
         }
+
         vector <Loan_Borrow> &getLoan_Borrow()
         {
             return this->listLoan_Borrow;
         }
+
         bool checkPassWord(string password)
         {
-            return this->pasword == password;
+            return this->password == password;
         }
+
         void input()
         {
             cout << "Nhap ID tai khoan: "; getline(cin, this->acountID);
             cout << "Nhap ten tai khoan: "; getline(cin, this->accountName);
-            cout << "Nhap mat khau: "; this->pasword = getMaskedPassword();
+            cout << "Nhap mat khau: "; this->password = getMaskedPassword();
             cout << "Nhap so du tai khoan: "; cin >> this->balance;
         }
-        void inputTransfer(){
-            cout << "Nhap ID tai khoan: "; getline(cin, this->acountID);
-            cout << "Nhap ten tai khoan: "; getline(cin, this->accountName);
-        }
+        
         void makeTrans()
         {
             Transaction x;
@@ -84,6 +92,7 @@ class Account{
             this->historyTrans.push_back(x);
             this->balance -= x.getAmount();
         }
+
         void makeLoan_Borrow(Loan_Borrow x)
         {
             if(x.getType() == 0 && x.getAmount() > this->balance)
@@ -97,22 +106,21 @@ class Account{
             else if(x.getType() == 1)
                 this->balance += x.getAmount();
         }
+
         void display()
         {
             cout << "ID tai khoan: " << this->acountID << endl;
             cout << "Ten tai khoan: " << this->accountName << endl;
             cout << "So du tai khoan: " << fixed << setprecision(2) << this->balance << endl;
         }
-        void displayTransfer(){
-            cout << "ID tai khoan: " << this->acountID << endl;
-            cout << "Ten tai khoan: " << this->accountName << endl;
-        }
+        
         void deleteTrans()
         {
             if(this->historyTrans.empty())
                 cout << this->accountName << " : giao dich rong";
             this->historyTrans.clear();
         }
+
         void deleteLoan()
         {
             if(this->listLoan_Borrow.empty())
@@ -123,6 +131,7 @@ class Account{
                     this->listLoan_Borrow.erase(this->listLoan_Borrow.begin() + i);
             }
         }
+
         void deleteBorrow()
         {
             if(this->listLoan_Borrow.empty())
