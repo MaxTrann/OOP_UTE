@@ -15,7 +15,16 @@ class Loan_Borrow : public Transaction{
             Transaction :: inputLoanBorrow();
             cin.ignore();
             cout << "Nhap ten nguoi vay/cho vay: "; getline(cin, this->name);
-            cout << "Nhap lai suat: "; cin >> this->interestRate;
+            while(true){
+                cout << "Nhap lai suat: ";
+                cin >> this->interestRate;
+                if (this->interestRate < 0 || this->interestRate > 100){
+                    cout << "Lai suat khong hop le! Vui long nhap lai (tu 0 den 100)\n";
+                }
+                else{
+                    break;
+                }
+            }
             cout << "Nhap thoi gian hoan thanh vay/cho vay: " << endl;; // hạn để trả hoặc nhận
             this->endDate.input();
             this->status = false; // mac dinh la chua hoan thanh
